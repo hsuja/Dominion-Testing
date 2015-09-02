@@ -1,6 +1,6 @@
 # Dominion-Testing
 
-My testing was implemented in the following files:
+A buggy version of the Dominion card game was tested, employing manual and automated testing, in the following files:
 
 cardtest1.c
 cardtest2.c
@@ -9,4 +9,7 @@ cardtest4.c
 randomtestadventurer.c
 randomtestcard.c
 unittest1.c
-unittest1.c
+unittest2.c
+unittest3.c
+unittest4.c
+
