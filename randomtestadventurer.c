@@ -4,7 +4,6 @@
 // CS362-400
 // Random testing for play_adventurer()
 
-
 #include "dominion.h"
 #include "dominion_helpers.h"
 #include <string.h>
@@ -14,12 +13,10 @@
 #include <math.h>
 #include "rngs.h"
 
-
 int main(){
 
   struct gameState* g = malloc(sizeof(struct gameState));
    
-  //int currentPlayer = 0;
   int temphand[MAX_HAND];
   int newdiscard[MAX_DECK];
   int newdiscard_z = 0; // counter for newdiscard
@@ -37,7 +34,6 @@ int main(){
   int treasure_card2 = -1;
   int treasure_count = 0;
 
-
   printf ("Testing play_adventurer()\n");
 
   printf ("RANDOM TESTS\n\n");
@@ -54,12 +50,11 @@ int main(){
     newdiscard_z = 0;
     treasure_count = 0;
     
-
     for (i = 0; i < sizeof(struct gameState); i++) {
       ((char*)g)[i] = floor(Random() * 256);
     }
+    
     p = floor(Random() * 2);
-    //g->deckCount[p] = floor(Random() * MAX_DECK);
     g->deckCount[p] = floor(Random() * (MAX_DECK - 2)) + 2; //ensures at least 2
     g->discardCount[p] = floor(Random() * MAX_DECK);
     g->handCount[p] = floor(Random() * MAX_HAND);
@@ -109,23 +104,20 @@ int main(){
       if(holder == copper || holder == silver || holder == gold){
         if(treasure_card1 >= 0){
           treasure_card2 = holder;
-          //printf("treasure_card2 = %d\n", treasure_card2);
         }else{
           treasure_card1 = holder;
-          //printf("treasure_card1 = %d\n", treasure_card1);
         }
       }else{
 
         //find cards added to discard pile
- 
         newdiscard[newdiscard_z] = holder;
         newdiscard_z++;
 
       }
 
       i--;
+      
     }
-
 
     //call test function
     play_adventurer(&p, g, &cardDrawn, drawntreasure, &z, temphand);
@@ -138,7 +130,6 @@ int main(){
     assert(g->hand[p][g->handCount[p] - 1] == treasure_card2);
     assert(g->hand[p][g->handCount[p] - 2] == treasure_card1);
  
-
     dis_idx = g->discardCount[p] - 1;
 
     for(i = 0; i < newdiscard_z; i++){
