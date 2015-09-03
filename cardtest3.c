@@ -3,6 +3,7 @@
 // 4/26/15
 // CS362-400
 // test play_great_hall()
+
 #include "dominion.h"
 #include "dominion_helpers.h"
 #include <string.h>
@@ -11,23 +12,13 @@
 #include <assert.h>
 #include "rngs.h"
 
-
-
 int main(){
 
     struct gameState* g = malloc(sizeof(struct gameState));
-
-   
-	int currentPlayer = 0;
-	
-	
+    int currentPlayer = 0;
     int handPos;
-
     int pre_handCount;
     int pre_numActions;
-	
-	
-	 
 
     // Player 1
     g->deckCount[0] = 5;
@@ -56,13 +47,7 @@ int main(){
     g->deckCount[1] = 0;
     g->handCount[1] = 3;
     g->discardCount[1] = 5;
-/*
-    g->deck[1][0] = smithy;
-    g->deck[1][1] = village;
-    g->deck[1][2] = village;
-    g->deck[1][3] = village;
-    g->deck[1][4] = duchy;
-*/
+
     g->hand[1][0] = great_hall;
     g->hand[1][1] = gold;
     g->hand[1][2] = smithy;
@@ -94,10 +79,7 @@ int main(){
     g->discard[2][3] = estate;
     g->discard[2][4] = smithy;
    
-
-
     printf("\nTESTING play_great_hall():\n\n");
-
 
     handPos = 3;
     pre_handCount = g->handCount[currentPlayer];
@@ -121,8 +103,7 @@ int main(){
     }else{
     	printf("play_great_hall(): FAIL - numActions not incremented properly\n\n");
     }
-
-
+    
     handPos = 0;
     currentPlayer = 1;
     g->numActions = 0;
@@ -147,7 +128,6 @@ int main(){
     	printf("play_great_hall(): FAIL - numActions not incremented properly\n\n");
     }
 
-
     handPos = 2;
     currentPlayer = 2;
     g->numActions = 0;
@@ -171,7 +151,6 @@ int main(){
     }else{
     	printf("play_great_hall(): FAIL - numActions not incremented properly\n\n");
     }
-
 
     printf("Tests complete.\n");
 
