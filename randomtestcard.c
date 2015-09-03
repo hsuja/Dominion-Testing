@@ -4,7 +4,6 @@
 // CS362-400
 // Random testing for play_village()
 
-
 #include "dominion.h"
 #include "dominion_helpers.h"
 #include <string.h>
@@ -13,7 +12,6 @@
 #include <assert.h>
 #include <math.h>
 #include "rngs.h"
-
 
 int main(){
 
@@ -40,23 +38,18 @@ int main(){
 
     printf("Test Iteration %d:\n", n + 1);
 
-
     for (i = 0; i < sizeof(struct gameState); i++) {
       ((char*)g)[i] = floor(Random() * 256);
     }
-
 
     g->numActions = floor(Random() * 100);
     g->playedCardCount = floor(Random() * 100);
 
     p = floor(Random() * 2);
     
-    //g->deckCount[p] = floor(Random() * MAX_DECK);
     g->deckCount[p] = floor(Random() * (MAX_DECK - 1)) + 1; //ensures at least 1
     g->discardCount[p] = floor(Random() * MAX_DECK);
-    //g->handCount[p] = floor(Random() * MAX_HAND); 
     g->handCount[p] = floor(Random() * (MAX_HAND - 1)) + 1; //ensures at least 1 
-
 
     //fill hand with cards
     for(i = 0; i < g->handCount[p]; i++){
@@ -83,16 +76,13 @@ int main(){
     pre_deckCount = g->deckCount[p];
     drawnCard = g->deck[p][g->deckCount[p] - 1];
 
-
     //call test function
     play_village(&p, g, &rand_idx);
-
 
     assert(g->deckCount[p] == pre_deckCount - 1);
     printf("deckCount properly decremented\n");
     assert(g->handCount[p] == pre_handCount);
     printf("handCount properly remains the same\n");
-
 
     printf("Expected numActions: %d\n", pre_numActions + 2);
     printf("Actual numActions: %d\n", g->numActions);
