@@ -13,10 +13,7 @@
 #include "rngs.h"
 
 int main(){
-
-
-    //set cards in deck, hand, and discard for each player, then count particular cards for each player
-
+	
     struct gameState* g = malloc(sizeof(struct gameState));
 
     g->supplyCount[council_room] = 5;
@@ -25,8 +22,6 @@ int main(){
     g->supplyCount[baron] = 5;
     g->supplyCount[outpost] = 5;
     g->supplyCount[minion] = 0;
-
-    //int result;
 
     // Player 1
     g->deckCount[0] = 5;
@@ -76,7 +71,6 @@ int main(){
     int post_supply;
     int result;
 
-
     printf("\nTESTING gainCard():\n\n");
 
     pre_supply = supplyCount(council_room, g);
@@ -125,8 +119,6 @@ int main(){
         printf("gainCard(): FAIL - supply not decremented\n\n");
     }
 
-
-
     result = gainCard(minion, g, 2, 0);
 
     if(result == -1){
@@ -135,13 +127,6 @@ int main(){
     	printf("gainCard(): FAIL - supply < 1 not detected\n\n");
     }
   
-   
-
-   
-
-
-    
-    
     printf("Tests complete.\n");
 
     free(g);
