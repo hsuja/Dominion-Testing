@@ -14,9 +14,6 @@
 
 int main(){
 
-
-	//set cards in deck, hand, and discard for each player, then count particular cards for each player
-
     struct gameState* g = malloc(sizeof(struct gameState));
 
     int result;
@@ -75,10 +72,10 @@ int main(){
     result = fullDeckCount(0, smithy, g);
     printf("Count = %d, expected = %d\n", result, 2);
     assert(result == 2);
-
-	printf("Tests complete.\n");
-
-	free(g);
-
-	return 0;
+    
+    printf("Tests complete.\n");
+    
+    free(g);
+    
+    return 0;
 }
