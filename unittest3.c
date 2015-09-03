@@ -14,12 +14,7 @@
 
 int main(){
 
-
-    //set cards in deck, hand, and discard for each player, then count particular cards for each player
-
     struct gameState* g = malloc(sizeof(struct gameState));
-
-    //int result;
 
     // Player 1
     g->deckCount[0] = 5;
@@ -107,13 +102,10 @@ int main(){
 
     g->numPlayers = 4;
     g->whoseTurn = 0;
-    //g->numPlayers = 3;
-
+    
     int players[MAX_PLAYERS];
     int i;
     int winner;
-
-   
 
     getWinners(players, g);
 
@@ -134,15 +126,12 @@ int main(){
     }else{
         printf("getWinners(): FAIL\n\n");
     }
-
-
+    
     g->numPlayers = 3;
 
     g->discard[1][0] = smithy;
     g->discard[1][1] = smithy;
-    //g->discard[1][2] = smithy;
-
-   
+    
     getWinners(players, g);
 
     for(i = 0; i < MAX_PLAYERS; i++){
@@ -167,7 +156,6 @@ int main(){
     g->hand[2][2] = province;
     g->hand[2][3] = province;
 
-    
     getWinners(players, g);
 
     for(i = 0; i < MAX_PLAYERS; i++){
