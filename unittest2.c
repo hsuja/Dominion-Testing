@@ -14,9 +14,6 @@
 
 int main(){
 
-
-	//set cards in deck, hand, and discard for each player, then count particular cards for each player
-
     struct gameState* g = malloc(sizeof(struct gameState));
 
     int result;
@@ -139,11 +136,10 @@ int main(){
     }else{
         printf("scoreFor(): FAIL player 4\n");
     }
-
-   
-	printf("Tests complete.\n");
-
-	free(g);
-
-	return 0;
+    
+    printf("Tests complete.\n");
+    
+    free(g);
+    
+    return 0;
 }
